@@ -1,7 +1,7 @@
 require 'securerandom'
 require 'faker'
 
-10.times do
+5.times do
   author = "#{Faker::Name.name} <#{Faker::Internet.email}>"
   msg = Faker::Company.catch_phrase
 
