@@ -1,7 +1,10 @@
 require 'securerandom'
+require 'faker'
 
 1.times do
-  author = "#{SecureRandom.hex[0..5]} <#{SecureRandom.hex[0..5]}@example.com>"
+  author = "#{Faker::Name.name} <#{Faker::Internet.email}>"
+  msg = Faker::Lorem.sentence
+  
   `touch ./random/#{SecureRandom.hex}`
-  `git add -A; git commit -m "Commit message: #{SecureRandom.hex}" --author="#{author}"; git push`
+  `git add -A; git commit -m "#{msg}" --author="#{author}"; git push`
 end
